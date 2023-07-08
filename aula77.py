@@ -22,10 +22,12 @@ print(len(perguntas))
 respostas_certas = 0
 
 for pergunta in perguntas:
-    print(f'{pergunta["Pergunta"]}', "\n")
+    print(f'Pergunta: {pergunta["Pergunta"]}', "\n")
     print("Opções: ")
+
     for indice, opcao in enumerate(pergunta["Opções"]):
         print(f"{indice}) {opcao}")
+
     resposta = input("Digite a opção correta: ")
     if pergunta["Opções"][int(resposta)] == pergunta["Resposta"]:
         respostas_certas += 1
@@ -33,4 +35,5 @@ for pergunta in perguntas:
     else:
         print("Você errou!")
     print()
+
 print(f"Você acertou {respostas_certas} de {len(perguntas)} perguntas.")
