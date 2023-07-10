@@ -28,7 +28,18 @@ for pergunta in perguntas:
     for indice, opcao in enumerate(pergunta["Opções"]):
         print(f"{indice}) {opcao}")
 
-    resposta = input("Digite a opção correta: ")
+    resposta = input("Digite uma opção: ==> ")
+    print()
+    if resposta.isdigit() is False:
+        print("Opção inválida, digite apenas números\n")
+        print("Reinicie o jogo!!!\n")
+        break
+
+    if int(resposta) > len(pergunta["Opções"]):
+        print("Opção inválida, você digitou uma opção inexistente\n")
+        print("Reinicie o jogo!!!\n")
+        break
+
     if pergunta["Opções"][int(resposta)] == pergunta["Resposta"]:
         respostas_certas += 1
         print("Você acertou!")
@@ -36,4 +47,4 @@ for pergunta in perguntas:
         print("Você errou!")
     print()
 
-print(f"Você acertou {respostas_certas} de {len(perguntas)} perguntas.")
+print(f"Você acertou {respostas_certas} de {len(perguntas)} perguntas.\n")
